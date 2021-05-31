@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="h-full">
+<html lang="en" dir="ltr" class="h-full">
 
 <head>
     <meta charset="UTF-8">
@@ -11,8 +11,20 @@
     <title>Lazy Web Dashboard</title>
 </head>
 
-<body class="min-h-full bg-gray-50">
-    Lazy Web Dashboard
+<body class="min-h-full bg-gray-50 flex flex-col">
+    <aside class="fixed inset-y-0 start-0 w-64 h-full bg-gray-100 border-e border-gray-200">
+        <div class="flex justify-center items-center h-20 border-b border-gray-200">Brand</div>
+        <div class="p-4">Aside</div>
+    </aside>
+
+    <main class="flex-1 ms-64 bg-gray-50">
+        <header class="flex justify-between items-center h-20 px-4 border-b border-gray-200">
+            <div>Header Start</div>
+            <div>Header End</div>
+        </header>
+
+        <section class="p-4">Main</section>
+    </main>
 
     <script src="vendors/alpine-2.8.2/alpine.js"></script>
 </body>
