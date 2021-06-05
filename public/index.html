@@ -11,7 +11,7 @@
     <title>Lazy Web Dashboard</title>
 </head>
 
-<body class="min-h-full bg-gray-50 text-gray-900 flex flex-col">
+<body class="min-h-full bg-gray-50 text-gray-900 flex flex-col" x-data="{ open: false }">
     <aside class="fixed inset-y-0 start-0 w-64 h-full bg-gray-100 border-e border-gray-200">
         <div class="flex justify-center items-center h-20 border-b border-gray-200">
             <h1>
@@ -24,11 +24,21 @@
     <main class="flex-1 ms-64 bg-gray-50">
         <header class="flex justify-between items-center h-20 px-4 border-b border-gray-200">
             <div></div>
-            <div>
-                <div class="flex items-center h-12 px-2 rounded border border-gray-200">
+            <div class="relative">
+                <div class="flex items-center h-12 px-2 rounded border border-gray-200" @click="open = true">
                     <div class="flex justify-center items-center w-8 h-8 me-2 rounded bg-gray-100 border border-gray-200 text-sm">AK</div>
                     <div class="text-sm">Ahmad Karimi</div>
                 </div>
+
+                <div x-show="open"
+                     x-transition:enter="transition ease-out duration-200"
+                     x-transition:enter-start="opacity-0 transform scale-90"
+                     x-transition:enter-end="opacity-100 transform scale-100"
+                     x-transition:leave="transition ease-in duration-200"
+                     x-transition:leave-start="opacity-100 transform scale-100"
+                     x-transition:leave-end="opacity-0 transform scale-90"
+                     @click.away="open = false"
+                     class="absolute top-full mt-2 w-full max-w-xs p-4 bg-white shadow rounded">Profile Dropdown Content</div>
             </div>
         </header>
 
