@@ -34,7 +34,17 @@
             </div>
         </header>
 
-        <section class="p-4">Main</section>
+        <section class="p-4">
+            <div>
+                <div x-data="{ tab: 'foo' }">
+                    <button :class="{ 'active': tab === 'foo' }" @click="tab = 'foo'">Foo</button>
+                    <button :class="{ 'active': tab === 'bar' }" @click="tab = 'bar'">Bar</button>
+
+                    <div x-show="tab === 'foo'">Foo</div>
+                    <div x-show="tab === 'bar'">Bar</div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <script src="vendors/alpine-2.8.2/alpine.js"></script>
